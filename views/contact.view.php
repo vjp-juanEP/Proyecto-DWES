@@ -35,6 +35,7 @@
 			<hr>
 			<p>Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
 
+		<!--EJERCICIO 1-->
 			<?php
 			if (!empty($array_aux)) {
 				echo "<div class='alert alert-danger'>";
@@ -53,6 +54,7 @@
 			}
 			
 			?>
+		<!--FIN EJERCICIO-->
 
 			<form class="form-horizontal" method="post">
 				<div class="form-group">
