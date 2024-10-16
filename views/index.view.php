@@ -2,25 +2,10 @@
 
 
 <?php include __DIR__ . '/partials/nav.part.php' ?>
-<?php require 'utils/utils.php'; ?>
+
 
 <!-- Principal Content Start -->
 <div id="index">
-
-<div>
-    <ul>
-      <li class="<?php echo esOpcionMenuActiva('index.php') ? 'active' : ''; ?>">
-        <a href="index.php">Inicio</a>
-      </li>
-      <li class="<?php echo esOpcionMenuActiva('contact.php') ? 'active' : ''; ?>">
-        <a href="contact.php">Contacto</a>
-      </li>
-      <li class="<?php echo existeOpcionMenuActivaEnArray(['blog.php', 'single_post.php']) ? 'active' : ''; ?>">
-        <a href="blog.php">Blog</a>
-      </li>
-    </ul>
-  </div>
-
 
   <!-- Header -->
   <div class="row">
