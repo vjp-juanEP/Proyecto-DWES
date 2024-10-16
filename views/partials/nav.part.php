@@ -31,4 +31,5 @@
       </ul>
     </div>
   </div>
+</nav>
   <!-- End of Navigation Bar -->
