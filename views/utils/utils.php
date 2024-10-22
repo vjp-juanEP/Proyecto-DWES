@@ -1,7 +1,7 @@
 <?php
 
 function esOpcionMenuActiva(string $opcionMenu): bool {
-    return strpos($_SERVER['REQUEST_URI'], $opcionMenu) !== false;
+    return strpos($_SERVER['REQUEST_URI'], $opcionMenu);
 }
 
 function existeOpcionMenuActivaEnArray(array $opcionesMenu): bool {

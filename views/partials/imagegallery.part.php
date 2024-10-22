@@ -1,4 +1,5 @@
 <div class="row popup-gallery">
+<?php shuffle($imagenGaleria);?>
 <?php foreach ($imagenGaleria as $imagen) :?>
 
 

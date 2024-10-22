@@ -43,9 +43,6 @@
       <!-- First Category pictures -->
       <div id="category1" class="tab-pane active">
         <?php
-
-          shuffle($imagenGaleria);
-
           include __DIR__ . '/partials/imagegallery.part.php';
         ?>
       </div>
@@ -55,7 +52,6 @@
       <div id="category2" class="tab-pane active">
         
         <?php
-          shuffle($imagenGaleria);
           include __DIR__ . '/partials/imagegallery.part.php' 
         ?>
       </div>
@@ -65,7 +61,7 @@
       <div id="category3" class="tab-pane">
         
         <?php 
-          shuffle($imagenGaleria);
+          
         include __DIR__ . '/partials/imagegallery.part.php' 
         ?>
       </div>
