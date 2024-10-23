@@ -1,4 +1,6 @@
 <?php
+require 'utils/utils.php';
+
 if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     $array_error = [];
     $array_mostrarDatos = [];
