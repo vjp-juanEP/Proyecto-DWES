@@ -41,30 +41,31 @@
     <div class="tab-content">
 
       <!-- First Category pictures -->
-      <div id="category1" class="tab-pane active">
         <?php
+          $IdCategory = 1;
+          $esActive = 'active';
+          shuffle($imagenGaleria);
+
           include __DIR__ . '/partials/imagegallery.part.php';
         ?>
-      </div>
       <!-- End of First category pictures -->
 
       <!--second category pictures -->
-      <div id="category2" class="tab-pane active">
-        
         <?php
+          $IdCategory = 2;
+          $esActive = '';
+          shuffle($imagenGaleria);
           include __DIR__ . '/partials/imagegallery.part.php' 
         ?>
-      </div>
       <!-- End of second category pictures -->
 
       <!-- Third Category Pictures -->
-      <div id="category3" class="tab-pane">
-        
         <?php 
-          
+        $IdCategory = 3;
+        $esActive = '';
+        shuffle($imagenGaleria);
         include __DIR__ . '/partials/imagegallery.part.php' 
         ?>
-      </div>
       <!-- Third Category Pictures -->
 
     </div>
