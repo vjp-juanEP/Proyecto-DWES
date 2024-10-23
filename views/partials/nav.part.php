@@ -1,5 +1,5 @@
 <!-- Navigation Bar -->
-<?php require __DIR__ . '/../utils/utils.php'; ?>
+<?php require __DIR__ . '../../../utils/utils.php'; ?>
 
 <nav class="navbar navbar-fixed-top navbar-default">
   <div class="container">

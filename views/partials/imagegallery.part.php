@@ -1,4 +1,4 @@
-<div id="category<?php echo $IdCategory; ?>" class="tab-pane <?php echo $esActive?>">
+<div id="category<?= $idCategory; ?>" class="tab-pane <?= $esActive?>">
 <div class="row popup-gallery">
 
       

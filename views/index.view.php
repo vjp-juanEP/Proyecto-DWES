@@ -42,7 +42,7 @@
 
       <!-- First Category pictures -->
         <?php
-          $IdCategory = 1;
+          $idCategory = 1;
           $esActive = 'active';
           shuffle($imagenGaleria);
 
@@ -52,7 +52,7 @@
 
       <!--second category pictures -->
         <?php
-          $IdCategory = 2;
+          $idCategory = 2;
           $esActive = '';
           shuffle($imagenGaleria);
           include __DIR__ . '/partials/imagegallery.part.php' 
@@ -61,7 +61,7 @@
 
       <!-- Third Category Pictures -->
         <?php 
-        $IdCategory = 3;
+        $idCategory = 3;
         $esActive = '';
         shuffle($imagenGaleria);
         include __DIR__ . '/partials/imagegallery.part.php' 
