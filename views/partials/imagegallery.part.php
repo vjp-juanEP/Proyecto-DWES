@@ -1,7 +1,6 @@
 <div id="category<?= $idCategory; ?>" class="tab-pane <?= $esActive?>">
 <div class="row popup-gallery">
 
-      
 <?php foreach ($imagenGaleria as $imagen) :?>
 
     <div class="col-xs-12 col-sm-6 col-md-3">

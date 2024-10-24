@@ -10,7 +10,7 @@
                 <!-- Si he recibido el post, meteré una alerta de tipo info, y en caso-->
                 <!-- contrario muestro una alerta de tipo danger con clases de bootstrap-->
                 <div class="alert alert-<?php echo empty($errores) ? 'info' : 'danger'; ?> alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <?php if (empty($errores)) : ?>

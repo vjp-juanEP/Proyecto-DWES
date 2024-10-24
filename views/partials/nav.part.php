@@ -28,6 +28,8 @@
         </li>
         <li class="lien <?php echo esOpcionMenuActiva('contact.php') ? 'active' : ''; ?>">
           <a href="contact.php"><i class="fa fa-phone-square sr-icons"></i> Contacto</a>
+        <li class="lien <?php echo esOpcionMenuActiva('galery.php') ? 'active' : ''; ?>">
+          <a href="galery.php"><i class="fa fa-image sr-icons"></i> Galery</a>
         </li>
       </ul>
     </div>
