@@ -14,18 +14,17 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <?php if (empty($errores)) : ?>
-                        <p>Se subieron los archivos</p>
+                        <p><?= $mensaje ?></p>
                     <?php else : ?>
-                        <p>Se encontraron errores:</p>
                         <ul>
                             <?php foreach ($errores as $error) : ?>
-                                <li><?php echo $error; ?></li>
+                                <li><?= $error; ?></li>
                             <?php endforeach; ?>
                         </ul>
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
-            <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?= $_SERVER['PHP_SELF']; ?>">
                 <div class="form-group">
                     <div class="col-xs-12">
                         <label class="label-control">Imagen</label>
@@ -35,7 +34,7 @@
                 <div class="form-group">
                     <div class="col-xs-12">
                         <label class="label-control">Descripción</label>
-                        <textarea class="form-control" name="descripcion"><?php echo $descripcion ?></textarea>
+                        <textarea class="form-control" name="descripcion"><?= $descripcion ?></textarea>
                     </div>
                 </div>
                 <button class="pull-right btn btn-lg btn-info">ENVIAR</button>
