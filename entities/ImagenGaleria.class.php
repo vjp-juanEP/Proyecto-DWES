@@ -1,8 +1,8 @@
 <?php
 class ImagenGaleria{
     //Constantes
-    const RUTA_IMAGENES_PORTAFOLIOS = '/images/index/portfolio/';
-    const RUTA_IMAGENES_GALLERY = '/images/index/gallery/';
+    const RUTA_IMAGENES_PORTAFOLIOS = 'images/index/portfolio/';
+    const RUTA_IMAGENES_GALLERY = 'images/index/gallery/';
     //Variables
     private $nombre;
     private $descripcion;

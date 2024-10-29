@@ -2,7 +2,6 @@
     require 'utils/utils.php';
     require 'utils/File.class.php';
     require 'entities/ImagenGaleria.class.php';
-    //requiere 'exceptions/FileException.class.php';
 
     $errores = [];
     $descripcion = '';

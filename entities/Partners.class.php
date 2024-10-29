@@ -1,6 +1,6 @@
 <?php
 
-class Asociado{
+class Partner{
     //variables
     private string $nombre;
     private string $logo;
