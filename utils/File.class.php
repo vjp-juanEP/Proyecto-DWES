@@ -53,10 +53,16 @@ class File{
         $this->fileName = $this->file['name'];
         $ruta = $rutaDestino.$this->fileName;
 
-        if(is_file($ruta) == true){
-            $fechActual = date('dmYHis');
-            $this->fileName = $this->fileName.'_'.$fechActual;
-            $ruta = $rutaDestino.$this->fileName;
+        if(is_file($ruta)){
+            $contador = 1;
+            
+            $cadena =  $this->fileName;
+            while (is_file($ruta)) {
+                if(is_file($ruta)){
+                    $this->fileName = "(" . $contador++ . ")" . $cadena;
+                    $ruta = $rutaDestino.$this->fileName;    
+                }
+            }
         }
 
         if(move_uploaded_file($this->file['tmp_name'],$ruta) === false){

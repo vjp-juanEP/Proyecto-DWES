@@ -13,21 +13,7 @@
     }
 
 
-    //Vector para ver los partners de la página
-    $partners = [];
-    $auxPartners = [];
 
-    for ($i=0; $i <= 3 ; $i++) {
-        $partner = new Partner("Nombre " . $i, $i . "logo.jpg" ,"Descripción " . $i);
-        array_push($partners,$partner);
-    }
-
-    //Si hay (0,3] se mostrara todos los partners si (3,infinito) se mostrara 3 partners aleatorios
-    if(count($partners) <= 3){
-        $auxPartners = $partners;
-    }else if(count($partners) > 3){
-        $auxPartners = extractorPartners($partners);
-    }
 
     
     require 'views/index.view.php';
