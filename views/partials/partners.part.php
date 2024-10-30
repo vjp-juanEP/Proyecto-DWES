@@ -16,9 +16,8 @@
     }
 
     //Si hay (0,3] se mostrara todos los partners si (3,infinito) se mostrara 3 partners aleatorios
-    if(count($partners) <= 3){
-        $auxPartners = $partners;
-    }else if(count($partners) > 3){
+    $auxPartners = $partners;
+    if(count($partners) > 3){
         $auxPartners = extractorPartners($partners);
     }
 
