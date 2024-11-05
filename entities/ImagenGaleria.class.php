@@ -11,7 +11,7 @@ class ImagenGaleria{
     private $numDownloads;
 
     //Constructor
-    public function __construct( $nombre,  $descripcion,  $numVisualizaciones = 0,  $numLikes = 0 ,  $numDownloads = 0)
+    public function __construct($nombre,  $descripcion,  $numVisualizaciones = 0,  $numLikes = 0 ,  $numDownloads = 0)
     {
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
