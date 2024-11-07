@@ -1,5 +1,7 @@
 <?php
-class ImagenGaleria{
+require_once 'database/IEntity.class.php';
+
+class ImagenGaleria implements IEntity{
     //Constantes
     const RUTA_IMAGENES_PORTAFOLIOS = 'images/index/portfolio/';
     const RUTA_IMAGENES_GALLERY = 'images/index/gallery/';
@@ -10,14 +12,20 @@ class ImagenGaleria{
     private $numLikes;
     private $numDownloads;
 
+    /**
+     * @var int
+     */
+    private $id;
+
     //Constructor
-    public function __construct($nombre,  $descripcion,  $numVisualizaciones = 0,  $numLikes = 0 ,  $numDownloads = 0)
+    public function __construct($nombre="",  $descripcion="",  $numVisualizaciones = 0,  $numLikes = 0 ,  $numDownloads = 0)
     {
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
         $this->numVisualizaciones = $numVisualizaciones;
         $this->numLikes = $numLikes;
         $this->numDownloads = $numDownloads;
+        $this->id= null;
     }
 
     //Setters
@@ -46,6 +54,10 @@ class ImagenGaleria{
     }
 
     //Getter
+    public function getId()
+    {
+        return $this->id;
+    }
 	public function getNombre() : string
     {
         return $this->nombre;
@@ -79,6 +91,17 @@ class ImagenGaleria{
         return self::RUTA_IMAGENES_GALLERY.$this->getNombre();
     }
 
-	
+	public function toArray(): array
+    {
+        return[
+            'id' => $this->getId(),
+            'nombre' => $this->getNombre(),
+            'descripcion' => $this->getDescripcion(),
+            'numVisualizaciones' => $this->getNumVisualizaciones(),
+            'numLikes' => $this->getNumLikes(),
+            'numDownloads' => $this->getNumDownloads()
+        ];
+    }
+
 }
 ?>
