@@ -31,6 +31,20 @@
                         <input class="form-control-file" type="file" name="imagen">
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <label class="label-control">Categoria</label>
+                        <select class="form-control" name="categoria">
+                            <?php foreach($categorias as $categoria): ?>
+                                <option value="<?= $categoria->getId() ?>">
+                                    <?= $categoria->getnombre() ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>                
+
                 <div class="form-group">
                     <div class="col-xs-12">
                         <label class="label-control">Descripción</label>
@@ -48,6 +62,7 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Imagen</th>
+                            <th scope="col">Categoria</th>
                             <th scope="col">Visualizaciones</th>
                             <th scope="col">Likes</th>
                             <th scope="col">Descargas</th>
@@ -61,6 +76,7 @@
                                 <img src="<?= $imagen->getUrlGallery() ?>" alt="<?= $imagen->getDescripcion() ?>" 
                                 title="<?= $imagen->getDescripcion() ?>" width="100px">
                             </td>
+                            <td><?= $categoria[$imagen->getCategoria() - 1]->getNombre() ?></td>
                             <td><?= $imagen->getNumVisualizaciones() ?></td>
                             <td><?= $imagen->getNumLikes() ?></td>
                             <td><?= $imagen->getNumDownloads() ?></td>

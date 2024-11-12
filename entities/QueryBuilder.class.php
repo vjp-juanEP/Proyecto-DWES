@@ -2,6 +2,7 @@
 require_once 'exceptions/QueryException.class.php';
 require_once 'utils/string.php';
 require_once 'App.class.php';
+require_once 'categoria.class.php';
 
 abstract class QueryBuilder
 {
@@ -52,6 +53,18 @@ abstract class QueryBuilder
                 throw new QueryException(ERROR_STRINGS[ERROR_INSERT_BD]);
             }
             
+        }
+
+        public function executeTransaction(callable $fnExecuteQueries){
+            try{
+                $this->connection->beginTransaction();
+                $fnExecuteQueries();
+
+                $this->connection->commit();
+            }catch(PDOException $pdoException)
+            {
+                throw new PDOException($pdoException->getMessage());
+            }
         }
     }
 ?>

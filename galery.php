@@ -6,6 +6,8 @@
     require 'entities/QueryBuilder.class.php';
     require 'exceptions/AppException.class.php';
     require_once 'entities/repository/imagenGaleriaRepositorio.class.php';
+    require_once 'entities/repository/categoriaRepositorio.class.php';
+
 
     $errores = [];
     $descripcion = '';
@@ -22,18 +24,20 @@
         //$connection = App::getConnection();
 
         $imagenRepository = new ImagenGaleriaRepositorio();
+        $categoriaRepositorio = new categoriaRepositorio();
         //$queryBuilder = new QueryBuilder('imagenes','ImagenGaleria');
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             
                 $descripcion = trim(htmlspecialchars($_POST['descripcion']));
+                $categoria = trim(htmlspecialchars($_POST['categoria']));
                 $tiposAceptados = ['image/jpeg','image/jpg','image/gif','image/png'];
                 $imagen = new File('imagen',$tiposAceptados);
 
                 $imagen -> saveUploadFile(ImagenGaleria::RUTA_IMAGENES_GALLERY);
                 $imagen -> copyFile(ImagenGaleria::RUTA_IMAGENES_GALLERY,ImagenGaleria::RUTA_IMAGENES_PORTAFOLIOS);
 
-                $imagenGaleria = new ImagenGaleria($imagen->getFileName(),$descripcion);
+                $imagenGaleria = new ImagenGaleria($imagen->getFileName(),$descripcion, $categoria);
                 $imagenRepository->save($imagenGaleria);
                 $descripcion = "";
                 $mensaje = 'Imagen guardada';
@@ -65,9 +69,13 @@
         $errores[] = $exception->getMessage();
     }catch (AppException $exception){
         $errores[] = $exception->getMessage();
-    }finally{
+    }catch(PDOException $exception){
+        $errores[] = $exception->getMessage();
+    }
+    finally{
         //$queryBuilder = new QueryBuilder('imagenes','ImagenGaleria');
         $imagenes = $imagenRepository->findAll();
+        $categorias = $categoriaRepositorio->findAll();
     }
     require 'views/galery.view.php';
 ?>
