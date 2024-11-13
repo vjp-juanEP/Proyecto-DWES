@@ -1,6 +1,6 @@
 <?php 
     require 'utils/utils.php';
-    require 'utils/File.class.php';
+    require 'entities/File.class.php';
     require 'entities/ImagenGaleria.class.php';
     require 'entities/Connection.class.php';
     require 'entities/QueryBuilder.class.php';
@@ -36,6 +36,8 @@
 
                 $tiposAceptados = ['image/jpeg','image/jpg','image/gif','image/png'];
                 $imagen = new File('imagen',$tiposAceptados);
+
+                
 
                 $imagen -> saveUploadFile(ImagenGaleria::RUTA_IMAGENES_GALLERY);
                 $imagen -> copyFile(ImagenGaleria::RUTA_IMAGENES_GALLERY,ImagenGaleria::RUTA_IMAGENES_PORTAFOLIOS);
@@ -77,6 +79,7 @@
     }
     finally{
         //$queryBuilder = new QueryBuilder('imagenes','ImagenGaleria');
+        
         $imagenes = $imagenRepository->findAll();
         $categorias = $categoriaRepositorio->findAll();
     }
