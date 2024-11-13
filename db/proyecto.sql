@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-11-2024 a las 19:44:48
+-- Tiempo de generación: 13-11-2024 a las 16:33:39
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -37,6 +37,27 @@ CREATE TABLE `asociados` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `categorias`
+--
+
+CREATE TABLE `categorias` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(255) DEFAULT NULL,
+  `numImagenes` int(11) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`id`, `nombre`, `numImagenes`) VALUES
+(1, 'categoria 1', 1),
+(2, 'categoria 2', 0),
+(3, 'categoria 3', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `imagenes`
 --
 
@@ -46,19 +67,35 @@ CREATE TABLE `imagenes` (
   `descripcion` text DEFAULT NULL,
   `numVisualizaciones` int(11) DEFAULT 0,
   `numLikes` int(11) DEFAULT 0,
-  `numDescargas` int(11) DEFAULT 0
+  `numDownloads` int(11) DEFAULT 0,
+  `categoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `imagenes`
+--
+
+INSERT INTO `imagenes` (`id`, `nombre`, `descripcion`, `numVisualizaciones`, `numLikes`, `numDownloads`, `categoria`) VALUES
+(10, 'fotoCarnet_8.PNG', 'asd', 0, 0, 0, 1),
+(11, 'fotoCarnet_9.PNG', 'qwe', 0, 0, 0, 2),
+(12, 'fotoCarnet_10.PNG', 'qwe', 0, 0, 0, 2),
+(13, 'fotoCarnet_11.PNG', 'qwe', 0, 0, 0, 2),
+(14, 'fotoCarnet_12.PNG', 'qwe', 0, 0, 0, 2),
+(15, 'fotoCarnet_13.PNG', 'qwe', 0, 0, 0, 2),
+(16, 'fotoCarnet_14.PNG', 'qwe', 0, 0, 0, 2),
+(17, 'fotoCarnet_15.PNG', 'qwe', 0, 0, 0, 2),
+(18, 'fotoCarnet_16.PNG', 'qwedf', 0, 0, 0, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `mensajes`
+-- Estructura de tabla para la tabla `mensaje`
 --
 
-CREATE TABLE `mensajes` (
+CREATE TABLE `mensaje` (
   `id` int(11) NOT NULL,
   `nombre` varchar(255) NOT NULL,
-  `apellido` varchar(255) DEFAULT NULL,
+  `apellidos` varchar(255) DEFAULT NULL,
   `asunto` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `texto` text DEFAULT NULL,
@@ -76,15 +113,22 @@ ALTER TABLE `asociados`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `imagenes`
+-- Indices de la tabla `categorias`
 --
-ALTER TABLE `imagenes`
+ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `mensajes`
+-- Indices de la tabla `imagenes`
 --
-ALTER TABLE `mensajes`
+ALTER TABLE `imagenes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_cat` (`categoria`);
+
+--
+-- Indices de la tabla `mensaje`
+--
+ALTER TABLE `mensaje`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -98,16 +142,32 @@ ALTER TABLE `asociados`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT de la tabla `mensaje`
+--
+ALTER TABLE `mensaje`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `mensajes`
+-- Restricciones para tablas volcadas
 --
-ALTER TABLE `mensajes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Filtros para la tabla `imagenes`
+--
+ALTER TABLE `imagenes`
+  ADD CONSTRAINT `fk_cat` FOREIGN KEY (`categoria`) REFERENCES `categorias` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
