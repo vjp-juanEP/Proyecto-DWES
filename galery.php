@@ -42,7 +42,7 @@
                 $imagen -> saveUploadFile(ImagenGaleria::RUTA_IMAGENES_GALLERY);
                 $imagen -> copyFile(ImagenGaleria::RUTA_IMAGENES_GALLERY,ImagenGaleria::RUTA_IMAGENES_PORTAFOLIOS);
 
-                $imagenGaleria = new ImagenGaleria($imagen->getFileName(),$descripcion, $categoria);
+                $imagenGaleria = new ImagenGaleria($imagen->getFileName(), $descripcion, categoria: $categoria);
                 $imagenRepository->save($imagenGaleria);
                 $descripcion = "";
                 $mensaje = 'Imagen guardada';

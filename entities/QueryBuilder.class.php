@@ -44,10 +44,17 @@ abstract class QueryBuilder
             try{
                 $parameters = $entity->toArray();
 
-                $sql = sprintf('insert into %s (%s) values (%s)',$this->table,implode(', ', array_keys($parameters)),
-                ':' . implode(',:' , array_keys($parameters)));
+                // [imagen: foto, descripcion: hola bro, categoria: 1]
+                foreach ($parameters as $key => $value) {
+                    echo "Clave: $key, Valor: $value\n";
+                }
 
-                echo $parameters[2];
+                // insert into imagenbes (descripcion, categoria) values (bytes, 1)
+                $sql = sprintf('insert into %s (%s) values (%s)', 
+                                $this->table, 
+                                implode(', ', array_keys($parameters)),
+                                ':' . implode(',:' , array_keys($parameters)));
+
 
                 $statement = $this->connection->prepare($sql);
                 $statement -> execute($parameters);
@@ -57,6 +64,31 @@ abstract class QueryBuilder
             }
             
         }
+
+
+        // public function save(IEntity $entity): void{
+        //     try{
+        //     $parameters =$entity->toArray();
+    
+        //     $sql = sprintf('insert into %s (%s) values(%s)',
+        //     $this->table,
+        //     implode(', ',array_keys($parameters)),
+        //     ':'.implode(',:',array_keys($parameters)) // :id, :nombre, :descripcion
+        //     );
+            
+        //         $statement =$this->connection->prepare($sql);
+        //         $statement->execute($parameters);
+        //         if($entity instanceof imagenGaleria){
+        //             $this->incrementarNumCategorias($entity->getCategoria());
+        //         }
+        
+        
+        //     }catch(PDOException $exception){
+        //         die ($exception->getMessage());
+        //         //throw new  QueryException(getErrorString($exception));
+        
+        //     }
+        // }
 
         public function executeTransaction(callable $fnExecuteQueries){
             try{
