@@ -47,10 +47,13 @@ abstract class QueryBuilder
                 $sql = sprintf('insert into %s (%s) values (%s)',$this->table,implode(', ', array_keys($parameters)),
                 ':' . implode(',:' , array_keys($parameters)));
 
+                echo $parameters[2];
+
                 $statement = $this->connection->prepare($sql);
                 $statement -> execute($parameters);
             }catch(PDOException $exception){
-                throw new QueryException(ERROR_STRINGS[ERROR_INSERT_BD]);
+                // throw new QueryException(ERROR_STRINGS[ERROR_INSERT_BD]);
+                die($exception->getMessage());
             }
             
         }

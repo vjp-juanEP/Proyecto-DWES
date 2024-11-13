@@ -26,11 +26,14 @@
         $imagenRepository = new ImagenGaleriaRepositorio();
         $categoriaRepositorio = new categoriaRepositorio();
         //$queryBuilder = new QueryBuilder('imagenes','ImagenGaleria');
+        
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             
                 $descripcion = trim(htmlspecialchars($_POST['descripcion']));
-                $categoria = trim(htmlspecialchars($_POST['categoria']));
+                
+                $categoria = intval(trim(htmlspecialchars($_POST['categoria'])));
+
                 $tiposAceptados = ['image/jpeg','image/jpg','image/gif','image/png'];
                 $imagen = new File('imagen',$tiposAceptados);
 

@@ -10,7 +10,7 @@ class ImagenGaleria implements IEntity{
     private $descripcion;
     private $numVisualizaciones;
     private $numLikes;
-    private $numDescargas;
+    private $numDownloads;
     private $categoria;
 
     /**
@@ -19,13 +19,13 @@ class ImagenGaleria implements IEntity{
     private $id;
 
     //Constructor
-    public function __construct( string $nombre="", string $descripcion="",  int $numVisualizaciones = 0,int  $numLikes = 0 ,int  $numDescargas = 0,int $categoria = 0)
+    public function __construct( string $nombre="", string $descripcion="",  int $numVisualizaciones = 0,int  $numLikes = 0 ,int  $numDownloads = 0,int $categoria = 0)
     {
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
         $this->numVisualizaciones = $numVisualizaciones;
         $this->numLikes = $numLikes;
-        $this->numDescargas = $numDescargas;
+        $this->numDownloads = $numDownloads;
         $this->id= null;
         $this->categoria = $categoria;
     }
@@ -55,9 +55,9 @@ class ImagenGaleria implements IEntity{
         $this->numLikes = $numLikes;
     }
 
-	public function setNumDownloads( $numDescargas): void 
+	public function setNumDownloads( $numDownloads): void 
     {
-        $this->numDescargas = $numDescargas;
+        $this->numDownloads = $numDownloads;
     }
 
     //Getter
@@ -91,7 +91,7 @@ class ImagenGaleria implements IEntity{
 
 	public function getNumDownloads() : int
     {
-        return $this->numDescargas;
+        return $this->numDownloads;
     }
 
 	public function getUrlPortafolio():string{
@@ -110,8 +110,9 @@ class ImagenGaleria implements IEntity{
             'descripcion' => $this->getDescripcion(),
             'numVisualizaciones' => $this->getNumVisualizaciones(),
             'numLikes' => $this->getNumLikes(),
-            'numDescargas' => $this->getNumDownloads(),
+            'numDownloads' => $this->getNumDownloads(),
             'categoria' => $this->getCategoria()
+            
         ];
     }
 
