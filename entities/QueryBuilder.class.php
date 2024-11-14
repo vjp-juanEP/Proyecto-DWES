@@ -44,10 +44,6 @@ abstract class QueryBuilder
             try{
                 $parameters = $entity->toArray();
 
-                // [imagen: foto, descripcion: hola bro, categoria: 1]
-                foreach ($parameters as $key => $value) {
-                    echo "Clave: $key, Valor: $value\n";
-                }
 
                 // insert into imagenbes (descripcion, categoria) values (bytes, 1)
                 $sql = sprintf('insert into %s (%s) values (%s)', 
