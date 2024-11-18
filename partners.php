@@ -7,7 +7,9 @@
     require_once 'entities/ImagenGaleria.class.php';
     require_once 'entities/Connection.class.php';
 
-    $error = '';
+    $errores = [];
+    $descripcion = '';
+    $mensaje = '';
 
     try {
 
@@ -32,7 +34,7 @@
 
             // Sentencias SQL de tipo INSERT
             $partner = new Partner($nombre, $logo->getFileName(), $descripcion);
-            $partnerRepositorio->guardar($partner);
+            $partnerRepositorio->save($partner);
             $mensaje = 'Asociado guardado';
         }
     } catch (FileException $exc) {
@@ -42,7 +44,7 @@
     }catch(QueryException $exc){
         $error = $exc->getMessage();
     } finally {
-        $asociados = $partnerRepositorio->findAll();
+        $partners = $partnerRepositorio->findAll();
     }
 
     require 'views/partners.view.php';

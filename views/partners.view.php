@@ -4,11 +4,11 @@ include __DIR__ . '/partials/nav.part.php';
 ?>
 
 
-<div id="misAsociados">
+<div>
     <div class="container">
         <div class="col-xs-12 col-sm-8 col-sm-push-2">
             <h1>ASOCIADOS</h1>
-            
+
             <?php if ($_SERVER['REQUEST_METHOD'] === 'POST') : ?>
                 <!-- Si he recibido el post, meteré una alerta de tipo info, y en caso-->
                 <!-- contrario muestro una alerta de tipo danger con clases de bootstrap-->
@@ -50,31 +50,29 @@ include __DIR__ . '/partials/nav.part.php';
                 </div>
             </form>
             <hr class="divider">
-            <div class="imagenes_galeria">
-                <table class="table">
-                    <thead>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Logo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($partners as $partner): ?>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Logo</th>
+                            <th scope="row"><?= $partner->getId() ?></th>
+                            <td><?= $partner->getNombre() ?></td>
+                            <td>
+                                <img src="<?= $partner->getUrlLogo() ?>"
+                                    alt="<?= $partner->getDescripcion() ?>"
+                                    title="<?= $partner->getDescripcion() ?>"
+                                    width="100px">
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($asociados as $asociado): ?>
-                            <tr>
-                                <th scope="row"><?= $asociado->getId() ?></th>
-                                <td><?= $asociado->getNombre() ?></td>
-                                <td>
-                                    <img src="<?= $asociado->getUrlLogo() ?>"
-                                        alt="<?= $asociado->getDescripcion() ?>"
-                                        title="<?= $asociado->getDescripcion() ?>"
-                                        width="100px">
-                                </td>
-                            </tr>
-                        <?php endforeach ?>
-                    </tbody>
-                </table>
-            </div>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

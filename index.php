@@ -1,9 +1,11 @@
 <?php 
     require 'entities/ImagenGaleria.class.php';
     require 'utils/utils.php';
-    require 'entities/Partners.class.php';
+    require 'entities/Partner.class.php';
     require_once 'entities/Connection.class.php';
     require_once 'entities/repository/imagenGaleriaRepositorio.class.php';
+    require_once 'entities/repository/partnersRepositorio.class.php';
+
 
     
     // //Vector para rellenar la galeria de imagenes
@@ -20,12 +22,16 @@
         App::bind('config', $config);
 
         $imagenRepository = new ImagenGaleriaRepositorio();
-        $imagenGaleria = $imagenRepository->findAll();
+        $partnerRepository = new PartnerRepositorio();
+
     }
     catch(AppException $exc){
         $error = $exc->getMessage();
     }catch(QueryException $exc){
         $error = $exc->getMessage();
+    } finally {
+        $imagenGaleria = $imagenRepository->findAll();
+        $partners = $partnerRepository->findAll();
     }
 
     
