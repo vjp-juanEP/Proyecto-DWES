@@ -14,6 +14,7 @@
     $mensaje = '';
     
     try {
+        //Conexion a la base de datos
         $config = require_once 'app/config.php';
 
         //Guardamos la configuración en el contenedor de servicios:
@@ -32,7 +33,7 @@
             
                 $descripcion = trim(htmlspecialchars($_POST['descripcion']));
                 
-                $categoria = intval(trim(htmlspecialchars($_POST['categoria'])));
+                $categoria = trim(htmlspecialchars($_POST['categoria']));
 
                 $tiposAceptados = ['image/jpeg','image/jpg','image/gif','image/png'];
                 $imagen = new File('imagen',$tiposAceptados);

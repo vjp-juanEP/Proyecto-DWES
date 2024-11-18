@@ -31,8 +31,8 @@
         <li class="lien <?php echo esOpcionMenuActiva('galery.php') ? 'active' : ''; ?>">
           <a href="galery.php"><i class="fa fa-image sr-icons"></i> Galery</a>
         </li>
-        <li class="lien <?php echo esOpcionMenuActiva('') ? 'active' : ''; ?>">
-          <a href=""><i class="fa fa-hand-o-right"></i> Partner</a>
+        <li class="lien <?php echo esOpcionMenuActiva('partners.php') ? 'active' : ''; ?>">
+          <a href="partners.php"><i class="fa fa-hand-o-right"></i> Partner</a>
         </li>
       </ul>
     </div>

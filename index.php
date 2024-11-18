@@ -14,6 +14,7 @@
     //     array_push($imagenGaleria,$imagen);
     // }
     try {
+        //Conexion a la base de datos
         $config = require_once 'app/config.php';
 
         App::bind('config', $config);
@@ -21,8 +22,10 @@
         $imagenRepository = new ImagenGaleriaRepositorio();
         $imagenGaleria = $imagenRepository->findAll();
     }
-    catch (QueryException | AppException $exception) {
-        $errores[] = $exception->getMessage();
+    catch(AppException $exc){
+        $error = $exc->getMessage();
+    }catch(QueryException $exc){
+        $error = $exc->getMessage();
     }
 
     

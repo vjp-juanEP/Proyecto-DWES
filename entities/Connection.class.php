@@ -1,5 +1,5 @@
 <?php
-require 'App.class.php';
+require_once 'App.class.php';
 require_once 'utils/string.php';
 
 class Connection
