@@ -45,34 +45,37 @@ include __DIR__ . '/partials/nav.part.php';
                     <div class="col-xs-12">
                         <label class="label-control">Descripción</label>
                         <textarea class="form-control" id="descripcion" name="descripcion"></textarea>
-                        <button class="pull-right btn btn-lg sr-button">ENVIAR</button>
+                        <button class="pull-right btn btn-lg btn-info">ENVIAR</button>
                     </div>
                 </div>
             </form>
             <hr class="divider">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Logo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($partners as $partner): ?>
+
+            <div class="parter">
+                <table class="table table-striped table-dark">
+                    <thead>
                         <tr>
-                            <th scope="row"><?= $partner->getId() ?></th>
-                            <td><?= $partner->getNombre() ?></td>
-                            <td>
-                                <img src="<?= $partner->getUrlLogo() ?>"
-                                    alt="<?= $partner->getDescripcion() ?>"
-                                    title="<?= $partner->getDescripcion() ?>"
-                                    width="100px">
-                            </td>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Logo</th>
                         </tr>
-                    <?php endforeach ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($partners as $partner): ?>
+                            <tr>
+                                <th scope="row"><?= $partner->getId() ?></th>
+                                <td><?= $partner->getNombre() ?></td>
+                                <td>
+                                    <img src="<?= $partner->getUrlLogo() ?>"
+                                        alt="<?= $partner->getDescripcion() ?>"
+                                        title="<?= $partner->getDescripcion() ?>"
+                                        width="100px">
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-11-2024 a las 16:33:39
+-- Tiempo de generación: 20-11-2024 a las 16:05:03
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -33,6 +33,13 @@ CREATE TABLE `asociados` (
   `logo` varchar(255) DEFAULT NULL,
   `descripcion` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `asociados`
+--
+
+INSERT INTO `asociados` (`id`, `nombre`, `logo`, `descripcion`) VALUES
+(1, 'Emperator', '(1)Emperador_de_la_Humanidad.jpg', 'Emperador de la humanidad');
 
 -- --------------------------------------------------------
 
@@ -76,15 +83,7 @@ CREATE TABLE `imagenes` (
 --
 
 INSERT INTO `imagenes` (`id`, `nombre`, `descripcion`, `numVisualizaciones`, `numLikes`, `numDownloads`, `categoria`) VALUES
-(10, 'fotoCarnet_8.PNG', 'asd', 0, 0, 0, 1),
-(11, 'fotoCarnet_9.PNG', 'qwe', 0, 0, 0, 2),
-(12, 'fotoCarnet_10.PNG', 'qwe', 0, 0, 0, 2),
-(13, 'fotoCarnet_11.PNG', 'qwe', 0, 0, 0, 2),
-(14, 'fotoCarnet_12.PNG', 'qwe', 0, 0, 0, 2),
-(15, 'fotoCarnet_13.PNG', 'qwe', 0, 0, 0, 2),
-(16, 'fotoCarnet_14.PNG', 'qwe', 0, 0, 0, 2),
-(17, 'fotoCarnet_15.PNG', 'qwe', 0, 0, 0, 2),
-(18, 'fotoCarnet_16.PNG', 'qwedf', 0, 0, 0, 1);
+(30, 'Emperador_de_la_Humanidad.jpg', 'imagen', 0, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -139,7 +138,7 @@ ALTER TABLE `mensaje`
 -- AUTO_INCREMENT de la tabla `asociados`
 --
 ALTER TABLE `asociados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -151,7 +150,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `mensaje`

@@ -24,7 +24,7 @@
 
 <?php foreach ($auxPartners as $partner): ?>
     <ul class="list-inline">
-        <li><img src="<?= $partner->getUrlLogo(); ?>" alt="<?= $partner->getDescripcion(); ?>"></li>
+        <li><img src="<?= $partner->getUrlLogo(); ?>" alt="<?= $partner->getDescripcion(); ?>" width="100px"></li>
         <li><?= $partner->getNombre(); ?></li>
     </ul> 
 <?php endforeach; ?>

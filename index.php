@@ -6,7 +6,7 @@
     require_once 'entities/repository/imagenGaleriaRepositorio.class.php';
     require_once 'entities/repository/partnersRepositorio.class.php';
 
-
+    $errores[] = [];
     
     // //Vector para rellenar la galeria de imagenes
     // $imagenGaleria = [];
@@ -26,9 +26,9 @@
 
     }
     catch(AppException $exc){
-        $error = $exc->getMessage();
+        $errores[] = $exc->getMessage();
     }catch(QueryException $exc){
-        $error = $exc->getMessage();
+        $errores[] = $exc->getMessage();
     } finally {
         $imagenGaleria = $imagenRepository->findAll();
         $partners = $partnerRepository->findAll();
