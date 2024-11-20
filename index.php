@@ -6,7 +6,7 @@
     require_once 'entities/repository/imagenGaleriaRepositorio.class.php';
     require_once 'entities/repository/partnersRepositorio.class.php';
 
-    $errores[] = [];
+    $errores = [];
     
     // //Vector para rellenar la galeria de imagenes
     // $imagenGaleria = [];

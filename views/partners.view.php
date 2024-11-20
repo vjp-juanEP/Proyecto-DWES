@@ -7,7 +7,7 @@ include __DIR__ . '/partials/nav.part.php';
 <div>
     <div class="container">
         <div class="col-xs-12 col-sm-8 col-sm-push-2">
-            <h1>ASOCIADOS</h1>
+            <h1>PARTNER</h1>
 
             <?php if ($_SERVER['REQUEST_METHOD'] === 'POST') : ?>
                 <!-- Si he recibido el post, meteré una alerta de tipo info, y en caso-->
