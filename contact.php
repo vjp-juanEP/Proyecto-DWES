@@ -1,6 +1,9 @@
 <?php
 require 'utils/utils.php';
 
+$errores = [];
+
+
 if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     $array_error = [];
     $array_mostrarDatos = [];
@@ -37,6 +40,17 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                 $array_mostrarDatos[] = "Message: $mensaje";
             }
         }
+    }
+
+    try{        $config = require_once 'app/config.php';
+
+
+    }catch (QueryException $exception) {
+        $errores[] = $exception->getMessage();
+    }catch (AppException $exception){
+        $errores[] = $exception->getMessage();
+    }catch(PDOException $exception){
+        $errores[] = $exception->getMessage();
     }
 }
 

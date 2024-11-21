@@ -59,10 +59,8 @@ class File{
             
             $cadena =  $this->fileName;
             while (is_file($ruta)) {
-                if(is_file($ruta)){
                     $this->fileName = "(" . $contador++ . ")" . $cadena;
                     $ruta = $rutaDestino.$this->fileName;    
-                }
             }
         }
 
