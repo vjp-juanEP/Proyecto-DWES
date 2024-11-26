@@ -6,5 +6,15 @@ class ImagenGaleriaRepositorio extends QueryBuilder{
     {
         parent::__construct($table,$classEntity);
     }
+
+    // Guarda una imagen en la BD usando transacciones
+    public function guardar($imagenGaleria) {
+        $guardarImagen = function() use ($imagenGaleria) {
+            $this->save($imagenGaleria);
+            $this->incrementaNumeroImagenesCategoria($imagenGaleria->getCategoria());
+        };
+
+        $this->executeTransaction($guardarImagen);
+    }
 }
 ?>

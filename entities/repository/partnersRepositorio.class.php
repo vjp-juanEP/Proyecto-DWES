@@ -7,6 +7,14 @@ class PartnerRepositorio extends QueryBuilder {
     {
         parent::__construct($table,$classEntity);
     }
+
+    public function guardar($asociado) {
+        $guardarAsociado = function() use ($asociado) {
+            $this->save($asociado);
+        };
+
+        $this->executeTransaction($guardarAsociado);
+    }
 }
 
 ?>

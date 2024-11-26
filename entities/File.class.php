@@ -1,10 +1,13 @@
 <?php
+//require de clases y utils
 require __DIR__.'/../exceptions/FileException.class.php';
 require_once 'utils/string.php';
 class File{
+    //variables
     private $file;
     private $fileName;
 
+    //Constructor
     public function __construct(string $fileName, array $arrTypes)
     {
         $this->file = $_FILES[$fileName];

@@ -1,18 +1,22 @@
 <?php
+//require de clases y utils
 require 'utils/utils.php';
 require_once 'entities/mensaje.class.php';
 require_once 'entities/repository/mensajeRepositorio.class.php';
 require_once 'entities/connection.class.php';
 
+//Variable para manejar errores
 $errores = [];
 
 try {
+    //Crea una conexión con la BBDD
     $config = require_once 'app/config.php';
     App::bind('config', $config);
 
     $mensajeRepository = new MensajeRepositorio();
 
     if ($_SERVER["REQUEST_METHOD"] == 'POST') {
+        //Variables
         $array_error = [];
         $array_mostrarDatos = [];
         $nombre = $_POST["nombre"];
@@ -21,6 +25,7 @@ try {
         $subject = $_POST["subject"];
         $mensaje = $_POST["mensaje"];
 
+        //Comprobación de que el usuario ha introducido los datos requeridos
         if (empty($nombre)) {
             $array_error[] = "El campo First Name no puede estar vacío";
         }
@@ -48,10 +53,13 @@ try {
                     $array_mostrarDatos[] = "Message: $mensaje";
                 }
             }
+            
+            //Creación del mensaje que se introducira en la BD
+            $mensaje = new Mensaje($nombre, $apellido, $email, $subject, $mensaje);
+            //Guardado del mensaje en la base de datos
+            $mensajeRepository->guardar($mensaje);
         }
-
-        $mensaje = new Mensaje($nombre, $apellido, $email, $subject, $mensaje);
-        $mensajeRepository->save($mensaje);
+        
     }
 } catch (QueryException $exception) {
     $errores[] = $exception->getMessage();
@@ -63,3 +71,5 @@ try {
 
 
 require 'views/contact.view.php';
+
+?>

@@ -6,5 +6,13 @@ class MensajeRepositorio extends QueryBuilder{
     {
         parent::__construct($table,$classEntity);
     }
+
+    public function guardar($mensaje) {
+        $guardarMensaje = function() use ($mensaje) {
+            $this->save($mensaje);
+        };
+
+        $this->executeTransaction($guardarMensaje);
+    }
 }
 ?>

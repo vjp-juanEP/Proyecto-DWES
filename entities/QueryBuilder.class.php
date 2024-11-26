@@ -32,8 +32,10 @@ abstract class QueryBuilder
     {
         $sqlStatement = "Select * from $this->table";
 
+        //Prepara la consulta SQL para su ejecución.
         $pdoStatement = $this->connection->prepare($sqlStatement);
-
+        
+        //Si no se ejecuta la consulta SQL que fue preparada con prepare()
         if ($pdoStatement->execute() === false) {
             throw new QueryException(ERROR_STRINGS[ERROR_EXECUTE_STATEMENT]);
         }
@@ -46,7 +48,6 @@ abstract class QueryBuilder
         try {
             $parameters = $entity->toArray();
 
-
             // insert into imagenbes (descripcion, categoria) values (bytes, 1)
             $sql = sprintf(
                 'insert into %s (%s) values (%s)',
@@ -54,64 +55,40 @@ abstract class QueryBuilder
                 implode(', ', array_keys($parameters)),
                 ':' . implode(',:', array_keys($parameters))
             );
-
-
+            //Prepara la consulta SQL para su ejecución.
             $statement = $this->connection->prepare($sql);
+            //Ejecuta la consulta SQL que fue preparada con prepare()
             $statement->execute($parameters);
-            //Si es una imagen lo que estamos insertando en la tabla incrementa el número de imágenes correspondientes en la tabla categoria
-            if ($entity instanceof ImagenGaleria) {
-                $this->incrementaNumCategoria($entity->getCategoria());
-            }
+
         } catch (PDOException $exception) {
-            // throw new QueryException(ERROR_STRINGS[ERROR_INSERT_BD]);
-            die($exception->getMessage());
+            throw new QueryException(ERROR_STRINGS[ERROR_INSERT_BD]);
+            //die($exception->getMessage());
         }
     }
 
-
-    // public function save(IEntity $entity): void{
-    //     try{
-    //     $parameters =$entity->toArray();
-
-    //     $sql = sprintf('insert into %s (%s) values(%s)',
-    //     $this->table,
-    //     implode(', ',array_keys($parameters)),
-    //     ':'.implode(',:',array_keys($parameters)) // :id, :nombre, :descripcion
-    //     );
-
-    //         $statement =$this->connection->prepare($sql);
-    //         $statement->execute($parameters);
-    //         if($entity instanceof imagenGaleria){
-    //             $this->incrementarNumCategorias($entity->getCategoria());
-    //         }
-
-
-    //     }catch(PDOException $exception){
-    //         die ($exception->getMessage());
-    //         //throw new  QueryException(getErrorString($exception));
-
-    //     }
-    // }
-
-    // public function executeTransaction(callable $fnExecuteQueries)
-    // {
-    //     try {
-    //         $this->connection->beginTransaction();
-    //         $fnExecuteQueries();
-
-    //         $this->connection->commit();
-    //     } catch (PDOException $pdoException) {
-    //         throw new PDOException($pdoException->getMessage());
-    //     }
-    // }
-
-    public function incrementaNumCategoria(int $categoria)
+    public function executeTransaction(callable $fnExecuteQueries)
     {
         try {
             $this->connection->beginTransaction();
-            $sql = "UPDATE categorias SET numImagenes = numImagenes + 1 WHERE id = $categoria";
-            $this->connection->exec($sql);
+
+            $fnExecuteQueries();
+            //Confirma una transacción y aplica de forma permanente todos los cambios realizados en la base de datos durante esa transacción.
             $this->connection->commit();
+        } catch (PDOException $pdoException) {
+            //Revierte todos los cambios realizados en la base de datos durante una transacción desde el momento en que se inició con beginTransaction
+            $this->connection->rollBack();
+            throw new PDOException($pdoException->getMessage());
+        }
+    }
+
+    public function incrementaNumeroImagenesCategoria(int $idCategoria)
+    {
+        try {
+            $sql = "UPDATE categorias SET numImagenes = numImagenes + 1 WHERE id = $idCategoria";
+            //Prepara la consulta SQL para su ejecución.
+            $statement = $this->connection->prepare($sql);
+            //Ejecuta la consulta SQL que fue preparada con prepare()
+            $statement->execute();
         } catch (Exception $exception) {
             throw new Exception($exception->getMessage());
         }
