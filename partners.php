@@ -19,7 +19,6 @@ try {
     $config = require_once 'app/config.php';
     App::bind('config', $config);
 
-    //Uso: realizar INSERT y SELECT con la BBDD
     $partnerRepositorio = new PartnerRepositorio();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
