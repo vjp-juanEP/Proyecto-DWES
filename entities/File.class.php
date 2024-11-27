@@ -19,23 +19,6 @@ class File{
         }
 
         if ($this->file['error'] !== UPLOAD_ERR_OK){
-            // switch ($this->file['error']) {
-            //     case UPLOAD_ERR_INI_SIZE:
-            //     case UPLOAD_ERR_FORM_SIZE:{
-            //         throw new FileException('El fichero es demasiado grande');
-            //         break;
-            //     }
-            //     case UPLOAD_ERR_PARTIAL:{
-            //         throw new FileException('No se ha poddo subir el fichero completo');
-            //         break;
-            //     }    
-                
-            //     default:{
-            //         throw new FileException('No se ha podido subir el fichero');
-            //         break;
-            //     }
-                    
-            // }
             throw new FileException(ERROR_STRINGS[$this->file['error']]);
         }
 
