@@ -10,8 +10,8 @@ $errores = [];
 
 try {
     //Crea una conexión con la BBDD
-    $config = require_once 'app/config.php';
-    App::bind('config', $config);
+    //$config = require_once 'app/config.php';
+    //App::bind('config', $config);
 
     $mensajeRepository = new MensajeRepositorio();
 

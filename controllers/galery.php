@@ -18,8 +18,8 @@ $mensaje = '';
 
 try {
     //Conexion a la base de datos
-    $config = require_once 'app/config.php';
-    App::bind('config', $config);
+    //$config = require_once 'app/config.php';
+    //App::bind('config', $config);
 
 
     $imagenRepository = new ImagenGaleriaRepositorio();

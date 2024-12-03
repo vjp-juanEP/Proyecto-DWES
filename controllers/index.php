@@ -1,54 +1,4 @@
 <?php
-
-// Carga configuraciones por defecto del proyecto
-require 'utils/bootstrap.php';
-
-// Redirección de rutas amigables del proyecto
-$routes = require 'utils/routes.php';
-
-$uri = trim($_SERVER['REQUEST_URI'], '/');
-
-require $routes[$uri];
-
-?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <?php
 require 'entities/ImagenGaleria.class.php';
 require 'utils/utils.php';
 require 'entities/Partner.class.php';
@@ -60,8 +10,8 @@ $errores = [];
 
 try {
     //Conexion a la base de datos
-    $config = require_once 'app/config.php';
-    App::bind('config', $config);
+    //$config = require_once 'app/config.php';
+    //App::bind('config', $config);
 
     $imagenRepository = new ImagenGaleriaRepositorio();
     $partnerRepository = new PartnerRepositorio();
@@ -77,4 +27,4 @@ try {
 
 require 'views/index.view.php';
 
-?> -->
+?>
