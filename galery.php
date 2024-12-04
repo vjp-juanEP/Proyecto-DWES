@@ -27,7 +27,7 @@ try {
 
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
+        
         $descripcion = trim(htmlspecialchars($_POST['descripcion']));
 
         $categoria = trim(htmlspecialchars($_POST['categoria']));
@@ -47,6 +47,7 @@ try {
 
         $descripcion = "";
         $mensaje = 'Imagen guardada';
+        header("Location: index.php");
     }
 
 } catch (FileException $exception) {
