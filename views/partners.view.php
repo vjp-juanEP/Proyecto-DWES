@@ -28,7 +28,7 @@ include __DIR__ . '/partials/nav.part.php';
                 </div>
             <?php endif; ?>
 
-            <form class="form-horizontal" method="post" enctype="multipart/form-data"><!-- action="imagenes-galeria/nueva" -->
+            <form class="form-horizontal" method="post" enctype="multipart/form-data" action="imagenes-partner/nueva">
                 <div class="form-group">
                     <div class="col-xs-12">
                         <label class="label-control">Nombre</label>
