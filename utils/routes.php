@@ -9,5 +9,6 @@ $router->get('post','controllers/single_post.php');
 
 $router->post('imagenes-galeria/nueva','controllers/nueva-imagen-galeria.php');
 $router->post('imagenes-partner/nueva','controllers/nuevo-asociado.php');
+$router->post('nuevo-mensaje/nueva','controllers/nuevo-mensaje.php');
 
 ?>

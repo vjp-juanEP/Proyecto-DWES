@@ -31,7 +31,7 @@
 			
 			?>
 
-			<form class="form-horizontal" method="post">
+			<form class="form-horizontal" method="post" action="nuevo-mensaje/nueva">
 				<div class="form-group">
 					<div class="col-xs-6">
 						<label class="label-control">First Name</label>
