@@ -25,31 +25,6 @@ try {
     $imagenRepository = new ImagenGaleriaRepositorio();
     $categoriaRepositorio = new categoriaRepositorio();
 
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        
-        $descripcion = trim(htmlspecialchars($_POST['descripcion']));
-
-        $categoria = trim(htmlspecialchars($_POST['categoria']));
-
-        $tiposAceptados = ['image/jpeg', 'image/jpg', 'image/gif', 'image/png'];
-        $imagen = new File('imagen', $tiposAceptados);
-
-        //Guardar el fichero en la galeria de imagenes
-        $imagen->saveUploadFile(ImagenGaleria::RUTA_IMAGENES_GALLERY);
-        //Copia el fichero en el directorio portfolio
-        $imagen->copyFile(ImagenGaleria::RUTA_IMAGENES_GALLERY, ImagenGaleria::RUTA_IMAGENES_PORTAFOLIOS);
-
-        //Creación de la imagen de la galería
-        $imagenGaleria = new ImagenGaleria($imagen->getFileName(), $descripcion, categoria: $categoria);
-        //Guarda las imagenes en la base de datos
-        $imagenRepository->guardar($imagenGaleria);
-
-        $descripcion = "";
-        $mensaje = 'Imagen guardada';
-        header("Location: index.php");
-    }
-
 } catch (FileException $exception) {
     $errores[] = $exception->getMessage();
 } catch (QueryException $exception) {

@@ -1,14 +1,28 @@
 <?php
 
-// Carga configuraciones por defecto del proyecto
+// // Carga configuraciones por defecto del proyecto
 require 'utils/bootstrap.php';
 
-// Redirección de rutas amigables del proyecto
-$routes = require 'utils/routes.php';
+// // Redirección de rutas amigables del proyecto
 
-$uri = trim($_SERVER['REQUEST_URI'], '/');
+// $router = new Router();
+// require 'utils/routes.php';
 
-require $routes[$uri];
+// //$uri = trim($_SERVER['REQUEST_URI'], '/');
+
+
+// try{
+//     require $router->direct(Request::uri());
+
+// }catch(Exception $e){
+//     die($e->getMessage());
+// }
+
+try{
+    require Router::load('utils/routes.php')->direct(Request::uri(),$_SERVER['REQUEST_METHOD']);
+}catch(Exception $e){
+    die($e->getMessage());
+}
 
 ?>
 
