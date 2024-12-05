@@ -36,6 +36,7 @@ try {
 
 
     $mensaje = "Se ha guardado una nueva imagen" . $imagenGaleria->getNombre();
+    //Obtengo el objeto monolog/logger y ejecuto la funcion info para añadir una linea
     App::get('logger')->log->info($mensaje);
 
 
