@@ -1,4 +1,6 @@
 <?php 
+    namespace proyecto\entities\database;
+
 
 interface IEntity
 {

@@ -1,13 +1,23 @@
 <?php
 //require de clases y utils
-require 'utils/utils.php';
-require 'entities/File.class.php';
-require 'entities/ImagenGaleria.class.php';
-require 'entities/Connection.class.php';
-require 'entities/QueryBuilder.class.php';
-require 'exceptions/AppException.class.php';
-require_once 'entities/repository/imagenGaleriaRepositorio.class.php';
-require_once 'entities/repository/categoriaRepositorio.class.php';
+// require 'utils/utils.php';
+// require 'entities/File.class.php';
+// require 'entities/ImagenGaleria.class.php';
+// require 'entities/Connection.class.php';
+// require 'entities/QueryBuilder.class.php';
+// require 'exceptions/AppException.class.php';
+// require_once 'entities/repository/imagenGaleriaRepositorio.class.php';
+// require_once 'entities/repository/categoriaRepositorio.class.php';
+
+namespace proyecto\controllers;
+
+use proyecto\entities\repository\ImagenGaleriaRepositorio;
+use proyecto\entities\repository\categoriaRepositorio;
+use proyecto\exceptions\FileException;
+use proyecto\exceptions\QueryException;
+use proyecto\exceptions\AppException;
+use PDOException;
+
 
 //Variable para manejar errores
 $errores = [];
@@ -20,7 +30,7 @@ try {
 
 
     $imagenRepository = new ImagenGaleriaRepositorio();
-    $categoriaRepositorio = new categoriaRepositorio();
+    $categoriaRepositorio = new CategoriaRepositorio();
 
 
     // if ($_SERVER['REQUEST_METHOD'] === 'POST') {

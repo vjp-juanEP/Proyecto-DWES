@@ -2,12 +2,19 @@
 
 // Carga determinadas configuraciones en el arranque del proyecto
 
-require_once 'entities/App.class.php';
-require_once 'entities/request.class.php';
-require_once 'entities/Router.class.php';
+namespace proyecto\utils;
+use proyecto\entities\App;
+use proyecto\entities\Router;
+use proyecto\entities\repository\MyLog;
 
-require_once 'vendor/autoload.php';
-require_once 'entities/repository/myLog.class.php';
+require __DIR__.'/../vendor/autoload.php';
+
+// require_once 'entities/App.class.php';
+// require_once 'entities/request.class.php';
+// require_once 'entities/Router.class.php';
+
+// require_once 'vendor/autoload.php';
+// require_once 'entities/repository/myLog.class.php';
 
 $config = require_once 'app/config.php';
 App::bind('config', $config);

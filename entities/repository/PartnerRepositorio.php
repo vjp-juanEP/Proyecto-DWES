@@ -1,6 +1,9 @@
 <?php
 
-require_once 'entities/QueryBuilder.class.php';
+//require_once 'entities/QueryBuilder.class.php';
+namespace proyecto\entities\repository;
+
+use proyecto\entities\QueryBuilder;
 
 class PartnerRepositorio extends QueryBuilder {
     public function __construct(string $table = 'asociados',string $classEntity = 'Partner') 

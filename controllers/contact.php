@@ -1,9 +1,16 @@
 <?php
 //require de clases y utils
-require 'utils/utils.php';
-require_once 'entities/mensaje.class.php';
-require_once 'entities/repository/mensajeRepositorio.class.php';
-require_once 'entities/connection.class.php';
+// require 'utils/utils.php';
+// require_once 'entities/mensaje.class.php';
+// require_once 'entities/repository/mensajeRepositorio.class.php';
+// require_once 'entities/connection.class.php';
+
+namespace proyecto\controllers;
+
+use proyecto\entities\repository\MensajeRepositorio;
+use proyecto\exceptions\QueryException;
+use proyecto\exceptions\AppException;
+use PDOException;
 
 //Variable para manejar errores
 $errores = [];

@@ -1,5 +1,9 @@
 <?php
-require_once 'database/IEntity.class.php';
+//require_once 'database/IEntity.class.php';
+namespace proyecto\entities;
+use proyecto\entities\database\IEntity;
+
+
 
 class ImagenGaleria implements IEntity
 {

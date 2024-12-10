@@ -1,8 +1,15 @@
 <?php
-require_once 'exceptions/QueryException.class.php';
-require_once 'utils/string.php';
-require_once 'App.class.php';
-require_once 'categoria.class.php';
+// require_once 'exceptions/QueryException.class.php';
+// require_once 'utils/string.php';
+// require_once 'App.class.php';
+// require_once 'categoria.class.php';
+
+namespace proyecto\entities;
+use proyecto\entities\database\IEntity;
+use PDO;
+use PDOException;
+use proyecto\exceptions\QueryException;
+use Exception;
 
 abstract class QueryBuilder
 {

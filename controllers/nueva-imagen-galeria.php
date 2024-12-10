@@ -1,12 +1,23 @@
 <?php
 //require de clases y utils
-require 'utils/utils.php';
-require 'entities/File.class.php';
-require 'entities/ImagenGaleria.class.php';
-require 'entities/Connection.class.php';
-require 'entities/QueryBuilder.class.php';
-require_once 'entities/repository/imagenGaleriaRepositorio.class.php';
-require_once 'entities/repository/categoriaRepositorio.class.php';
+// require 'utils/utils.php';
+// require 'entities/File.class.php';
+// require 'entities/ImagenGaleria.class.php';
+// require 'entities/Connection.class.php';
+// require 'entities/QueryBuilder.class.php';
+// require_once 'entities/repository/imagenGaleriaRepositorio.class.php';
+// require_once 'entities/repository/categoriaRepositorio.class.php';
+
+namespace proyecto\controllers;
+
+use proyecto\entities\repository\ImagenGaleriaRepositorio;
+use proyecto\entities\File;
+use proyecto\entities\ImagenGaleria;
+use proyecto\entities\App;
+use proyecto\exceptions\FileException;
+use proyecto\exceptions\QueryException;
+use proyecto\exceptions\AppException;
+use PDOException;
 
 //Variablesa lmacenar descripción del Partner introducida por el usuario
 $descripcion = '';

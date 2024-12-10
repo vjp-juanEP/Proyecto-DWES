@@ -1,11 +1,19 @@
 <?php
 //require de clases y utils
-require 'utils/utils.php';
-require_once 'entities/partner.class.php';
-require_once 'entities/repository/partnersRepositorio.class.php';
-require_once 'entities/File.class.php';
-require_once 'entities/ImagenGaleria.class.php';
-require_once 'entities/Connection.class.php';
+// require 'utils/utils.php';
+// require_once 'entities/partner.class.php';
+// require_once 'entities/repository/partnersRepositorio.class.php';
+// require_once 'entities/File.class.php';
+// require_once 'entities/ImagenGaleria.class.php';
+// require_once 'entities/Connection.class.php';
+
+namespace proyecto\controllers;
+
+use proyecto\entities\repository\PartnerRepositorio;
+use proyecto\exceptions\FileException;
+use proyecto\exceptions\QueryException;
+use proyecto\exceptions\AppException;
+use PDOException;
 
 //Variable para manejar errores
 $errores = [];

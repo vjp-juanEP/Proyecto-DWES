@@ -1,5 +1,9 @@
 <?php 
-require_once 'utils/string.php';
+//require_once 'utils/string.php';
+namespace proyecto\entities;
+use proyecto\utils;
+use proyecto\exceptions\AppException;
+
 class App{
     /**
      * @var array

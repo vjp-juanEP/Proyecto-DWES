@@ -1,10 +1,19 @@
 <?php
-require 'entities/ImagenGaleria.class.php';
-require 'utils/utils.php';
-require 'entities/Partner.class.php';
-require_once 'entities/Connection.class.php';
-require_once 'entities/repository/imagenGaleriaRepositorio.class.php';
-require_once 'entities/repository/partnersRepositorio.class.php';
+// require 'entities/ImagenGaleria.class.php';
+// require 'utils/utils.php';
+// require 'entities/Partner.class.php';
+// require_once 'entities/Connection.class.php';
+// require_once 'entities/repository/imagenGaleriaRepositorio.class.php';
+// require_once 'entities/repository/partnersRepositorio.class.php';
+
+namespace proyecto\controllers;
+
+use proyecto\entities\repository\ImagenGaleriaRepositorio;
+use proyecto\entities\repository\PartnerRepositorio;
+use proyecto\exceptions\QueryException;
+use proyecto\exceptions\AppException;
+
+
 
 $errores = [];
 

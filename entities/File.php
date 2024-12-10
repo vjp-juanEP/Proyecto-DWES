@@ -1,7 +1,12 @@
 <?php
 //require de clases y utils
-require __DIR__.'/../exceptions/FileException.class.php';
-require_once 'utils/string.php';
+// require __DIR__.'/../exceptions/FileException.class.php';
+// require_once 'utils/string.php';
+
+namespace proyecto\entities;
+
+use proyecto\exceptions\FileException;
+
 class File{
     //variables
     private $file;

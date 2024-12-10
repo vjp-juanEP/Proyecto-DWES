@@ -1,4 +1,5 @@
 <?php
+namespace proyecto\utils;
 
 //Función que verifica si una opción de menú está activa
 function esOpcionMenuActiva(string $opcionMenu) {
@@ -11,7 +12,7 @@ function esOpcionMenuActiva(string $opcionMenu) {
 //Función que verifica si alguna opción de un array de opciones de menú está activax
 function existeOpcionMenuActivaEnArray(array $opcionesMenu) {
     foreach ($opcionesMenu as $opcionMenu) {
-        if (esOpcionMenuActiva($opcionMenu)) {
+        if (self::esOpcionMenuActiva($opcionMenu)) {
             return true;
         }
     }
