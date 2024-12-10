@@ -14,7 +14,6 @@ use proyecto\exceptions\QueryException;
 use proyecto\exceptions\AppException;
 
 
-
 $errores = [];
 
 try {

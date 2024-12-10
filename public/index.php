@@ -4,7 +4,7 @@ use proyecto\entities\Request;
 use proyecto\entities\Router;
 
 // // Carga configuraciones por defecto del proyecto
-require 'utils/bootstrap.php';
+require '../utils/bootstrap.php';
 
 // // Redirección de rutas amigables del proyecto
 

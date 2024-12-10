@@ -16,7 +16,7 @@ require __DIR__.'/../vendor/autoload.php';
 // require_once 'vendor/autoload.php';
 // require_once 'entities/repository/myLog.class.php';
 
-$config = require_once 'app/config.php';
+$config = require_once '../app/config.php';
 App::bind('config', $config);
 
 $router = Router::load('utils/routes.php');
