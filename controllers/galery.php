@@ -70,6 +70,6 @@ try {
     $imagenes = $imagenRepository->findAll();
     $categorias = $categoriaRepositorio->findAll();
 }
-require 'views/galery.view.php';
+require  'views/galery.view.php';
 
 ?>

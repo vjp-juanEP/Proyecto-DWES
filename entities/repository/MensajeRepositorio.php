@@ -2,10 +2,12 @@
 //require_once 'entities/QueryBuilder.class.php';
 namespace proyecto\entities\repository;
 
+use proyecto\entities\Mensaje;
+
 use proyecto\entities\QueryBuilder;
 
 class MensajeRepositorio extends QueryBuilder{
-    public function __construct(string $table = 'mensaje',string $classEntity = 'Mensaje')
+    public function __construct(string $table = 'mensaje',string $classEntity = Mensaje::class)
     {
         parent::__construct($table,$classEntity);
     }

@@ -1,10 +1,11 @@
-<?php 
-use proyecto\utils;
+<?php
+
+use proyecto\utils\Utils;
 
     //Si hay (0,3] se mostrara todos los partners si (3,infinito) se mostrara 3 partners aleatorios
     $auxPartners = $partners;
     if(count($partners) > 3){
-        $auxPartners = utils\extractorPartners($partners);
+        $auxPartners = Utils::extractorPartners($partners);
     }
 ?>    
 
